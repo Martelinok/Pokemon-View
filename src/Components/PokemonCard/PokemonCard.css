@@ -1,0 +1,73 @@
+.PokemonCard_Container{
+    width: 100%;
+    max-width: 350px;
+    border-radius: 16px;
+    background-color: #f5f7f6;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    border: 1px solid #e6e6e6;
+    overflow: hidden;
+    margin: 0px auto;
+}
+.PokemonCard_Top{
+    width: 100%;
+    height: 120px;
+    display: block;
+    background-color: #33F6c3
+}
+.PokemonCard_Mid{
+    display: -ms-flexbox;
+    display: -webkit-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 1px solid rgba(153, 153, 153, 0.383);
+}
+.PokemonCard_Image{
+    width: 200px;
+    height: 200px;
+    border: 5px solid white;
+    border-radius: 50%;
+    margin-top: calc(-100px - 5px);
+    background-color: white;
+    padding: 5px;
+}
+.PokemonCard_Mid_H1{
+    margin-top: 2rem;
+    font-size: 1.6rem;
+    text-transform: capitalize;
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+.PokemonCard_Mid_P{
+    font-size: 1.2rem;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-family: 'Mochiy Pop One', sans-serif;
+}
+.PokemonCard_Bottom{
+    display:flex;
+    justify-content: space-between;
+}
+.PokemonCard_Bottom_Info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px 0px 15px 0px;
+    padding: 0px 15px;
+}
+.PokemonCard_Bottom_Info_H3{
+    font-size: 1rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Mochiy Pop One';
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+}
+.PokemonCard_Bottom_Info_P{
+    font-size: 0.8rem;
+    margin-top: 0;
+    margin-bottom: 0;
+    font-family: 'Mochiy Pop One';
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+}

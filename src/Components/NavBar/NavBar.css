@@ -62,6 +62,7 @@
 .SideNavbar_Options_Text {
     font-size: 18px;
     font-weight: bold;
+    font-family: 'Mochiy Pop One', sans-serif;
     color: #ffffff;
 }
 
@@ -128,8 +129,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: bold;
+    font-family: 'Mochiy Pop One', sans-serif;
     color: #ffffff;
     margin: 0px;
     padding: 0px;

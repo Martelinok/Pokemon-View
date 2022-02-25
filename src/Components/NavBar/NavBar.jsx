@@ -33,7 +33,7 @@ function NavBar({ image, Home, Favorites, Profile, dispatch }) {
         <div className="NavBar_Content">
           <div className={`SideNavbar_Content ${sideBar}`}>
             <div className="SideNavbar_Menu" onClick={() => setSideBar(false)}>
-              <SvgIcon name="BackArrow" fill='#FC5073' />
+              <SvgIcon name="BackArrow" fill='#FFCB05' />
             </div>
             <div className="SideNavbar_Options">
               <p className={`SideNavbar_Options_Text ${navigation === "Home" ? true : false}`} onClick={() => onClickOption('Home')}>{t("Home")}</p>
@@ -44,7 +44,7 @@ function NavBar({ image, Home, Favorites, Profile, dispatch }) {
           <div className={`SideNavbar_Skin ${sideBar}`} onClick={() => setSideBar(false)}></div>
           <div className="NavBar_Menu_Content">
             <div className={`NavBar_Menu_Image ${sideBar}`} onClick={() => setSideBar(!sideBar)}>
-              <SvgIcon name="Menu" fill='#FC5073' />
+              <SvgIcon name="Menu" fill='#FFCB05' />
             </div>
           </div>
           <div className="NavBar_Logo_Content">
