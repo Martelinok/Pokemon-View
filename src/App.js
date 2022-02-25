@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from "react";
+import { Provider } from "react-redux";
+import { TranslatorProvider } from "react-translate";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import configureStore from './Redux/Store/Store';
+import { Cookies } from "react-cookie";
+import { AuthContext } from "./Components/Context/Auth";
 
+/* ------------------------------- Import Page ------------------------------ */
+import Home from "./Page/Home/Home"
 function App() {
+  const cookies = new Cookies();
+  const [user, setUser] = useState(cookies.get("language") || "en");
+  console.log(user);
+  const store = configureStore();
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <Provider store={store}>
+      <AuthContext.Provider
+        value={{ user, setUser }}
+      >
+        <TranslatorProvider
+          translations={require(`./Assets/Language/${user}.json`)}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <BrowserRouter>
+            <Routes>
+              <Route
+                exact path="/"
+                element={<Home />}
+              />
+            </Routes>
+          </BrowserRouter>
+        </TranslatorProvider>
+      </AuthContext.Provider>
+    </Provider>
   );
 }
 
-export default App;
+export default App

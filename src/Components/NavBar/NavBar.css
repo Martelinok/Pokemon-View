@@ -1,0 +1,185 @@
+.NavBar_Container {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url(../../Assets/Images/Pokemon_Sky.png);
+    position: relative;
+    margin: 0px;
+    padding: 0px;
+}
+
+.NavBar_Content {
+    width: 100%;
+    max-width: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 5px 15px;
+}
+
+.SideNavbar_Content {
+    width: 100%;
+    max-width: 300px;
+    height: 100vh;
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: #011837;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
+    margin: 0px;
+    padding: 5px 15px;
+}
+
+.SideNavbar_Content.true {
+    transform: translateX(0%);
+}
+
+.SideNavbar_Menu {
+    height: 50px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    cursor: pointer;
+    opacity: 1 !important;
+}
+
+.SideNavbar_Options {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+}
+
+.SideNavbar_Options_Text {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.SideNavbar_Skin{
+    display: none;
+}
+.SideNavbar_Skin.true{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    display: flex;
+    z-index: 0;
+}
+.SideNavbar_Options_Text.true {
+    color: #FFCB05;
+    border-bottom: 2px solid #FFCB05;
+    border-radius: 1px;
+}
+
+.NavBar_Menu_Content {
+    display: none;
+}
+
+.NavBar_Menu_Image {
+    display: none;
+}
+
+.NavBar_Menu_Image.true {
+    display: none;
+}
+
+.NavBar_Logo_Content {
+    width: 20%;
+    height: 100%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.NavBar_Logo_Image {
+    width: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Navbar_Options_Content {
+    width: 70%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px 10px;
+}
+
+.NavBar_Options_Text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffffff;
+    margin: 0px;
+    padding: 0px;
+}
+
+.NavBar_Options_Text.true {
+    color: #FFCB05;
+    border-bottom: 2px solid #FFCB05;
+    border-radius: 1px;
+}
+
+.NavBar_Language_Content{
+    width: 10%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+}
+.NavBar_Language_Image{
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 0px;
+    padding: 0px;
+}
+
+@media screen and (max-width: 800px) {
+    .NavBar_Menu_Content {
+        width: 10%;
+        height: 100%;
+        display: flex;
+    }
+
+    .NavBar_Menu_Image {
+        display: flex;
+        cursor: pointer;
+    }
+
+    .NavBar_Logo_Content {
+        width: 90%;
+        justify-content: center;
+    }
+
+    .Navbar_Options_Content {
+        display: none;
+    }
+
+}

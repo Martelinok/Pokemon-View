@@ -1,0 +1,8 @@
+{
+    "locale": "es-mx",
+    "NavBar":{
+        "Home":"Home",
+        "Favorites":"Favoritos",
+        "Profile":"Perfil"
+    }
+}
