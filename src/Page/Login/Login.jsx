@@ -17,7 +17,7 @@ function Login({ dispatch }) {
   let cookies = new Cookies();
   const changelaanguage = (language) => {
     dispatch({ type: "SET_LANGUAGE", payload: language });
-    cookies.remove('user')
+    cookies.remove('language');
     cookies.set('language', language)
     setUser(language)
   }
@@ -31,21 +31,21 @@ function Login({ dispatch }) {
       </div>
       <div className="Login_Container">
         <div className="Login_Content">
-          <h2>Inicia sesión</h2>
+          <h2>{t("Login")}</h2>
           <form action="" className="Login_Content_Form">
-            <input type="text" className="Login_Content_Form_Input" placeholder="Correo" />
-            <input type="text" className="Login_Content_Form_Input" placeholder="Contraseña" />
-            <button className="Login_Content_Form_Button" onClick={() => history("/Home")}>Iniciar sesión</button>
+            <input type="text" className="Login_Content_Form_Input" placeholder={t("Email")} />
+            <input type="text" className="Login_Content_Form_Input" placeholder={t("Password")} />
+            <button className="Login_Content_Form_Button" onClick={() => history("/Home")}>{t("Go")}</button>
             <div className="Login_Content_Form_Forget">
-              <a href="/">Olvidé mi contraseña</a>
+              <a href="/">{t("ForgotPassword")}</a>
             </div>
           </form>
           <div className="Logo_Container_SocialMedia">
             <div>
-              <img src={Google} alt="Logo" /> Inicia sesión con Google
+              <img src={Google} alt="Logo" /> {t("Google")}
             </div>
           </div>
-          <p className="Login_Container_Register">No tienes ninguna cuenta <a href="/">Regístrate</a></p>
+          <p className="Login_Container_Register">{t("NotAccount")}<a href="/">{t("Register")}</a></p>
         </div>
       </div>
     </React.Fragment>

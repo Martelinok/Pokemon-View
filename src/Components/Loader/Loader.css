@@ -1,0 +1,22 @@
+.Loader_Container{
+    width: 100%;
+    height: 100vh;
+    background-color: #181b1d;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3;
+}
+.Loader_Image_Content{
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.Loader_Image{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

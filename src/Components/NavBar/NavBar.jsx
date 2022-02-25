@@ -23,8 +23,7 @@ function NavBar({ dispatch, navegationOptions }) {
     history(`/${option}`);
   }
   const changelaanguage = (language) => {
-    dispatch({ type: "SET_LANGUAGE", payload: language });
-    cookies.remove('user')
+    cookies.remove('language');
     cookies.set('language', language)
     setUser(language)
   }

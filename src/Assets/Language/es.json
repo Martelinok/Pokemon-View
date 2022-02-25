@@ -4,5 +4,22 @@
         "Home":"Inicio",
         "Favorites":"Favoritos",
         "Profile":"Perfil"
+    },
+    "Login":{
+        "Login":"Iniciar sesión",
+        "Email":"Correo electrónico",
+        "Password":"Contraseña",
+        "ForgotPassword":"¿Olvidaste tu contraseña?",
+        "Google":"Inicia sesión con Google",
+        "Register":"Registrarse",
+        "NotAccount":"¿No tienes una cuenta? ",
+        "LoginError":"Usuario o contraseña incorrectos",
+        "LoginErrorMessage":"Por favor, verifique su correo electrónico y contraseña y vuelva a intentarlo.",
+        "Go":"Atrapalos"
+    },
+    "PokemonWidgetCard":{
+        "Attack":"Ataque",
+        "Defending":"Defensa",
+        "Special":"Especial"
     }
 }

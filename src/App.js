@@ -3,7 +3,7 @@ import { Provider } from "react-redux";
 import { TranslatorProvider } from "react-translate";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import configureStore from './Redux/Store/Store';
-import { Cookies } from "react-cookie";
+// import { Cookies } from "react-cookie";
 import { AuthContext } from "./Components/Context/Auth";
 /* ------------------------------- Import Page ------------------------------ */
 import Home from "./Page/Home/Home"
@@ -11,12 +11,13 @@ import Favorites from "./Page/Favorites/Favorites";
 import Profile from "./Page/Profile/Profile";
 import Login from "./Page/Login/Login";
 
+const store = configureStore();
 
 function App() {
-  const cookies = new Cookies();
-  const [user, setUser] = useState(cookies.get("language") || "en");
-  console.log(user);
-  const store = configureStore();
+  // const cookies = new Cookies();
+  const [user, setUser] = useState("en");
+  console.log("user", user);
+  console.log("store", store);
   return (
     <Provider store={store}>
       <AuthContext.Provider
