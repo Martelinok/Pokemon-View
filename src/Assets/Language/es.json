@@ -1,39 +1,47 @@
 {
     "locale": "es-mx",
-    "Global":{
+    "Global": {
         "SearchPokemon": "Buscar Pokémon",
         "NoFavorites": "No hay Pokémon favoritos",
         "NoFound": "No se encontro ningún Pokémon"
     },
-    "NavBar":{
-        "Home":"Inicio",
-        "Favorites":"Favoritos",
-        "Profile":"Perfil"
+    "NavBar": {
+        "Home": "Inicio",
+        "Favorites": "Favoritos",
+        "Profile": "Perfil"
     },
-    "Login":{
-        "Login":"Iniciar sesión",
-        "Email":"Correo electrónico",
-        "Password":"Contraseña",
-        "ForgotPassword":"¿Olvidaste tu contraseña?",
-        "Google":"Inicia sesión con Google",
-        "Register":"Registrarse",
-        "NotAccount":"¿No tienes una cuenta? ",
-        "LoginError":"Usuario o contraseña incorrectos",
-        "LoginErrorMessage":"Por favor, verifique su correo electrónico y contraseña y vuelva a intentarlo.",
-        "Go":"Atrapalos"
+    "Login": {
+        "Login": "Iniciar sesión",
+        "Email": "Correo electrónico",
+        "Password": "Contraseña",
+        "ForgotPassword": "¿Olvidaste tu contraseña?",
+        "Google": "Inicia sesión con Google",
+        "Register": "Registrarse",
+        "NotAccount": "¿No tienes una cuenta? ",
+        "LoginError": "Usuario o contraseña incorrectos",
+        "LoginErrorMessage": "Por favor, verifique su correo electrónico y contraseña y vuelva a intentarlo.",
+        "Go": "Atrapalos"
     },
-    "PokemonWidgetCard":{
-        "Attack":"Ataque",
-        "Defending":"Defensa",
-        "Special":"Especial"
+    "PokemonWidgetCard": {
+        "Attack": "Ataque",
+        "Defending": "Defensa",
+        "Special": "Especial"
     },
-    "Modal":{
-        "Attack":"Ataque",
-        "Defending":"Defensa",
-        "EspecialAttack":"Ataque especial",
-        "SpecialDefending":"Defensa especial",
-        "Speed":"Velocidad",
-        "Weight":"Peso",
+    "Modal": {
+        "Attack": "Ataque",
+        "Defending": "Defensa",
+        "EspecialAttack": "Ataque especial",
+        "SpecialDefending": "Defensa especial",
+        "Speed": "Velocidad",
+        "Weight": "Peso",
         "Exp": "Exp"
+    },
+    "Profile": {
+        "Profile": "Perfil",
+        "Logout": "Cerrar Sesión",
+        "EditProfile": "Editar Perfil",
+        "Name": "Nombre",
+        "Email": "Correo electrónico",
+        "Password": "Contraseña"
     }
 }

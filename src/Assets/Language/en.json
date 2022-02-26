@@ -35,5 +35,13 @@
         "Speed":"Speed",
         "Weight":"Weight",
         "Exp": "Exp"
+    },
+    "Profile":{
+        "Profile":"Profile",
+        "Logout":"Logout",
+        "EditProfile":"Edit Profile",
+        "Name":"Name",
+        "Email":"Email",
+        "Password":"Password"
     }
 }

@@ -1,0 +1,102 @@
+.Profile_Container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.Profile_Content {
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 0px;
+    padding: 60px 20px;
+}
+
+.Profile_Image_Content {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    margin: 0px;
+    padding: 5px;
+}
+
+.Profile_Image_Content_Style {
+    width: 100%;
+    border-radius: 50%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Profile_Input_Container {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Profile_Input_Content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0px 0px 0px;
+    padding: 0px;
+}
+
+.Profile_Input_Content_P {
+    width: 100%;
+    text-align: start;
+    font-size: 1rem;
+    font-family: 'Mochiy Pop One', sans-serif;
+    color: #011837;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Profile_Input_Content_Input {
+    width: 90%;
+    height: 40px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 10px 0px 0px;
+    padding: 5px 10px;
+}
+.Profile_Button_Conent{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 15px 0px 0px 0px;
+    padding: 0px;
+}
+.Profile_Button_Conent_Button{
+    width: 100%;
+    max-width: 150px;
+    height: 40px;
+    color: #fff;
+    background-color: #ff3333;
+    border: 1px solid #cccccc;
+    font-size: 1rem;
+    font-family: 'Mochiy Pop One', sans-serif;
+    border-radius: 5px;
+    margin: 10px 0px 0px;
+    padding: 5px 10px;
+}
