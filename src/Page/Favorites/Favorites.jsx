@@ -1,4 +1,4 @@
-import React from "react";
+import React,{ useState, useEffect} from "react";
 import { connect } from "react-redux";
 import { useTranslate } from 'react-translate';
 
@@ -6,12 +6,18 @@ import { useTranslate } from 'react-translate';
 import NavBar from "../../Components/NavBar/NavBar";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 import InputSearch from "../../Components/InputSearch/InputSearch";
+import Modal  from "../../Components/Modal/Modal";
 
 /* ------------------------------ Import Style ----------------------------- */
 import "./Favorites.css";
 function Favorites({ dispatch, FavoritesPokemon, Pokemons, InputSearchValue }) {
   const t = useTranslate("Global");
-
+  const [modal, setModal] = useState(false);
+  const [pokemonId, setPokemonId] = useState(0);
+  useEffect(() => {
+    dispatch({ type: 'SET_INPUT_SEARCH_VALUE', payload: "" })
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   const filterData = (data) => {
     return data.name.toLowerCase().includes(InputSearchValue.toLowerCase())
   }
@@ -19,6 +25,11 @@ function Favorites({ dispatch, FavoritesPokemon, Pokemons, InputSearchValue }) {
   return (
     <React.Fragment>
       <NavBar />
+      { modal &&
+        <Modal data ={Pokemons.filter(item=> item.id === pokemonId)[0]}
+        setModal={setModal}
+        />
+      }
       <div className="Favorites_Container">
         <div className="Favorites_Content">
           <div className="Favorites_Input_Content">
@@ -36,7 +47,7 @@ function Favorites({ dispatch, FavoritesPokemon, Pokemons, InputSearchValue }) {
               Pokemons.filter(item => FavoritesPokemon.includes(item.id) && filterData(item)).length > 0 ?
                 Pokemons.filter(item => FavoritesPokemon.includes(item.id) && filterData(item)).map((Pokemon) => {
                   return (
-                    <PokemonCard PokemonInfo={Pokemon} key={Pokemon.id} />
+                    <PokemonCard PokemonInfo={Pokemon} key={Pokemon.id} setId={(e)=> {setPokemonId(e);setModal(true)}} />
                   )
                 }
                 )

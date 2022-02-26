@@ -26,5 +26,14 @@
         "Attack":"Attack",
         "Defending":"Defending",
         "Special":"Special"
+    },
+    "Modal":{
+        "Attack":"Attack",
+        "Defending":"Defending",
+        "EspecialAttack":"Special Attack",
+        "SpecialDefending":"Special Defending",
+        "Speed":"Speed",
+        "Weight":"Weight",
+        "Exp": "Exp"
     }
 }

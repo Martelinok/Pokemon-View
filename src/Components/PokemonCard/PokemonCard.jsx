@@ -15,7 +15,7 @@ import "./PokemonCard.css";
  * @param  {Function} dispatch - Is the function to dispatch the action to the reducer
 
  */
-function PokemonCard({ PokemonInfo, FavoritesPokemon, dispatch }) {
+function PokemonCard({ PokemonInfo, FavoritesPokemon, dispatch, setId }) {
   let t = useTranslate("PokemonWidgetCard");
   const setFavorites = (id) => {
     let data = Array.from(FavoritesPokemon);
@@ -29,7 +29,7 @@ function PokemonCard({ PokemonInfo, FavoritesPokemon, dispatch }) {
   }
   return (
     <React.Fragment>
-      <div className="PokemonCard_Container" onClick={() => alert("General")}>
+      <div className="PokemonCard_Container" onClick={() => setId(PokemonInfo.id)}>
         <div className="PokemonCard_Top"></div>
         <div className="PokemonCard_Mid">
           <img

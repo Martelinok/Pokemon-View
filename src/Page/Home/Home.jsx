@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { GetPokemonData } from "../../Functions/BuildData"
 import { useTranslate } from 'react-translate';
@@ -7,12 +7,16 @@ import NavBar from "../../Components/NavBar/NavBar";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
 import Loader from "../../Components/Loader/Loader";
 import InputSearch from "../../Components/InputSearch/InputSearch";
+import Modal from "../../Components/Modal/Modal";
 /* ------------------------------ Import Style ------------------------------ */
 import "./Home.css";
 function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
   const t = useTranslate("Global");
+  const [modal, setModal] = useState(false);
+  const [pokemonId, setPokemonId] = useState(0);
   useEffect(() => {
     FetchPokemonsData()
+    dispatch({ type: 'SET_INPUT_SEARCH_VALUE', payload: "" })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -40,6 +44,11 @@ function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
   return (
     <React.Fragment>
       <NavBar />
+      { modal &&
+        <Modal data ={Pokemons.filter(item=> item.id === pokemonId)[0]}
+        setModal={setModal}
+        />
+      }
       <div className="Home_Container">
         <div className="Home_Content">
           <div className="Home_Input_Content">
@@ -56,7 +65,7 @@ function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
             {Pokemons.length > 0 &&
               Pokemons.filter(data => filterData(data)).length > 0 ?
               Pokemons.filter(data => filterData(data)).map((Pokemon) => {
-                return <PokemonCard PokemonInfo={Pokemon} key={Pokemon.id} />
+                return <PokemonCard PokemonInfo={Pokemon} key={Pokemon.id} setId={(e)=> {setPokemonId(e);setModal(true)}}/>
               })
               :
               <div className="Home_PokemonCard_Empty">

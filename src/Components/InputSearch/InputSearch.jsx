@@ -39,7 +39,6 @@ function InputSearch({
           />
         </div>
         <input
-          autoFocus 
           ref={inputRef}
           type="text"
           className={ disabled ? 'InputSearch_Input_True' : "InputSearch_Input" }
