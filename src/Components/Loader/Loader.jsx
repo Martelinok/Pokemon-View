@@ -3,6 +3,11 @@ import React from "react";
 import LoderIcon from "../../Assets/Images/Loader.gif";
 /* ------------------------------ Import Style ------------------------------ */
 import "./Loader.css";
+/**
+ * This is a componet to show the loader
+ * @author [Kevin Martello Mayorga Cleveland]
+ * @version 1.0.0
+ */
 function Loader({ params }) {
   return (
     <React.Fragment>

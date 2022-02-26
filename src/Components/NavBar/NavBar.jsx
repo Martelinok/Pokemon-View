@@ -9,7 +9,13 @@ import SvgIcon from "../../Assets/Images/SvgIcon";
 import Logo from "../../Assets/Images/Pokemon-Logo.png";
 /* ------------------------------ Import Styles ----------------------------- */
 import "./NavBar.css";
-
+/**
+ * This is a componet to show the NavBar
+ * @author [Kevin Martello Mayorga Cleveland]
+ * @version 1.0.0
+ * @param  {Function} dispatch - Is the function to dispatch the action to the reducer
+ * @param  {String} navegationOptions The value of the navegationOptions
+ */
 function NavBar({ dispatch, navegationOptions }) {
   const [sideBar, setSideBar] = useState(false);
   const {user, setUser} = useAuth();

@@ -5,16 +5,38 @@
     margin: 0px;
     padding: 60px 10px 15px 10px;
 }
-
 .Home_Content {
     width: 100%;
     max-width: 1200px;
-    height: 100%;
     display: grid;
     margin: 0px auto;
     padding: 0px;
 }
-
+.Home_Input_Content{
+    /* width: calc(100% - 35px); */
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 15px 0px;
+    padding: 0px 15px 30px 15px;
+}
+.Home_Input_Style{
+    width: 100%;
+    max-width: 300px;
+    margin: 0px;
+    padding: 0px;
+}
+@media screen and (max-width: 800px) {
+    .Home_Input_Content{
+        justify-content: center;
+    }
+    .Home_Input_Style{
+        width: 80%;
+        max-width: 80%;
+    }
+}
+    
 .Home_PokemonCard_Content {
     --auto-grid-min-size: 16rem;
     display: grid;
@@ -22,4 +44,16 @@
     grid-gap: 1rem;
     margin: 0px;
     padding: 0px 15px 30px 15px;
+}
+.Home_PokemonCard_Empty{
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px;
+}
+.Home_PokemonCard_Empty_Text{
+    font-size: 1.5rem;
+    font-family: 'Mochiy Pop One', sans-serif;
+    color: #828282;
+    margin: 0px;
+    padding: 0px;
 }

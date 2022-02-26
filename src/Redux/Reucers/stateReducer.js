@@ -3,6 +3,7 @@ const INITIALSTATE = {
     navegationOptions:"Home",
     Pokemons:[],
     FavoritesPokemon:[],
+    InputSearchValue:"",
 };
 // eslint-disable-next-line import/no-anonymous-default-export
 export default function(state= INITIALSTATE, action) {
@@ -17,6 +18,8 @@ export default function(state= INITIALSTATE, action) {
             return { ...state, Pokemons: payload }
         case 'SET_FAVORITES_POKEMONS':
             return { ...state, FavoritesPokemon: payload }
+        case 'SET_INPUT_SEARCH_VALUE':
+            return { ...state, InputSearchValue: payload }
         default:
             return state
     }

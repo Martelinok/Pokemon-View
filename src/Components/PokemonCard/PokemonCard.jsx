@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import { useTranslate } from 'react-translate';
 
@@ -6,6 +6,15 @@ import { useTranslate } from 'react-translate';
 import SvgIcon from "../../Assets/Images/SvgIcon";
 /* ------------------------------ Import Styles ----------------------------- */
 import "./PokemonCard.css";
+/**
+ * This is a componet to show the NavBar
+ * @author [Kevin Martello Mayorga Cleveland]
+ * @version 1.0.0
+ * @param  {Object} PokemonInfo - Is the object with the information of the pokemon
+ * @param  {Array} FavoritesPokemon - Is the array with the favorites pokemon
+ * @param  {Function} dispatch - Is the function to dispatch the action to the reducer
+
+ */
 function PokemonCard({ PokemonInfo, FavoritesPokemon, dispatch }) {
   let t = useTranslate("PokemonWidgetCard");
   const setFavorites = (id)=>{
@@ -26,7 +35,7 @@ function PokemonCard({ PokemonInfo, FavoritesPokemon, dispatch }) {
   }
   return (
     <React.Fragment>
-      <div className="PokemonCard_Container">
+      <div className="PokemonCard_Container" onClick={() => alert("General")}>
         <div className="PokemonCard_Top"></div>
         <div className="PokemonCard_Mid">
           <img
@@ -34,7 +43,7 @@ function PokemonCard({ PokemonInfo, FavoritesPokemon, dispatch }) {
             alt="Avatar"
             className="PokemonCard_Image"
           />
-          <div className="PokemonCard_Mid_Image" onClick={() => setFavorites(PokemonInfo.id)}>
+          <div className="PokemonCard_Mid_Image" onClick={(e) => {e.stopPropagation(); setFavorites(PokemonInfo.id)}}>
             <SvgIcon
               name="Star"
               fill={FavoritesPokemon.includes(PokemonInfo.id) ? "#FFD700" : "#FFFFFF"}

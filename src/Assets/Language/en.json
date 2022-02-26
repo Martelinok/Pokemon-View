@@ -1,5 +1,10 @@
 {
     "locale": "en-us",
+    "Global":{
+        "SearchPokemon": "Search Pokemon",
+        "NoFavorites": "You have no favorites",
+        "NoFound": "No Pokemon found"
+    },
     "NavBar":{
         "Home":"Home",
         "Favorites":"Favorites",
