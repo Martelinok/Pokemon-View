@@ -31,7 +31,7 @@ function Login({ dispatch }) {
       </div>
       <div className="Login_Container">
         <div className="Login_Content">
-          <h2>{t("Login")}</h2>
+          <h2 className="Login_Content_H2">{t("Login")}</h2>
           <form action="" className="Login_Content_Form">
             <input type="text" className="Login_Content_Form_Input" placeholder={t("Email")} />
             <input type="text" className="Login_Content_Form_Input" placeholder={t("Password")} />

@@ -1,11 +1,13 @@
 .NavBar_Container {
     width: 100%;
     height: 50px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
     display: flex;
     justify-content: center;
     align-items: center;
     background: url(../../Assets/Images/Pokemon_Sky.png);
-    position: relative;
     margin: 0px;
     padding: 0px;
 }
