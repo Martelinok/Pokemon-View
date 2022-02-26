@@ -5,7 +5,6 @@ export const GetPokemonData = async () => {
     let pokemonsInfo
     try {
         pokemons = await FetchPokemons()
-        console.log('pokemons', pokemons);
         pokemonsInfo = await Promise.all(pokemons.data.results.map(async (pokemon) => {
             const PokeInfo = await FetchPokemonsInfo(pokemon.url)
             return {
@@ -21,7 +20,6 @@ export const GetPokemonData = async () => {
             
             }
         }))
-        console.log('pokemonsInfo', pokemonsInfo);
     } catch (error) {
         console.log(error)
     } finally {

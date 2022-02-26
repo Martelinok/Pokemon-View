@@ -2,7 +2,7 @@
     "locale": "en-us",
     "Global":{
         "SearchPokemon": "Search Pokemon",
-        "NoFavorites": "You have no favorites",
+        "NoFavorites": "No favorites Pokemon",
         "NoFound": "No Pokemon found"
     },
     "NavBar":{
