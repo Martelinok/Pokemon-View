@@ -36,16 +36,16 @@ function Login({ dispatch }) {
             <input type="text" className="Login_Content_Form_Input" placeholder={t("Email")} />
             <input type="text" className="Login_Content_Form_Input" placeholder={t("Password")} />
             <button className="Login_Content_Form_Button" onClick={() => history("/Home")}>{t("Go")}</button>
-            <div className="Login_Content_Form_Forget">
+            {/* <div className="Login_Content_Form_Forget">
               <a href="/">{t("ForgotPassword")}</a>
-            </div>
+            </div> */}
           </form>
           <div className="Logo_Container_SocialMedia">
             <div>
               <img src={Google} alt="Logo" /> {t("Google")}
             </div>
           </div>
-          <p className="Login_Container_Register">{t("NotAccount")}<a href="/">{t("Register")}</a></p>
+          <p className="Login_Container_Register">{t("NotAccount")}<a href="/SingUp">{t("Register")}</a></p>
         </div>
       </div>
     </React.Fragment>

@@ -96,6 +96,7 @@
     border: 1px solid #cccccc;
     font-size: 1rem;
     font-family: 'Mochiy Pop One', sans-serif;
+    cursor: pointer;
     border-radius: 5px;
     margin: 10px 0px 0px;
     padding: 5px 10px;

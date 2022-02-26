@@ -14,7 +14,7 @@ function Modal({ data, setModal }) {
 
   return (
     <React.Fragment>
-      <div className="Modal_Container" onClick={() =>setModal(false)}>
+      <div className="Modal_Container">
         <div className="Modal_Content">
           <div className="Modal_Header">
             <div className="Modal_Header_Image" onClick={() =>setModal(false)}>

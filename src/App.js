@@ -10,6 +10,7 @@ import Home from "./Page/Home/Home"
 import Favorites from "./Page/Favorites/Favorites";
 import Profile from "./Page/Profile/Profile";
 import Login from "./Page/Login/Login";
+import SingUp from "./Page/SingUp/SingUp";
 
 const store = configureStore();
 
@@ -29,6 +30,10 @@ function App() {
               <Route
                 exact path="/"
                 element={<Login />}
+              />
+              <Route
+                exact path="/SingUp"
+                element={<SingUp />}
               />
               <Route
                 exact path="/Home"

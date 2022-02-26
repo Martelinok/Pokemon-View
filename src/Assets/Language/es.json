@@ -22,6 +22,16 @@
         "LoginErrorMessage": "Por favor, verifique su correo electrónico y contraseña y vuelva a intentarlo.",
         "Go": "Atrapalos"
     },
+    "SingUp":{
+        "SingUp": "Registrarse",
+        "Name": "Nombre",
+        "Email": "Correo electrónico",
+        "Password": "Contraseña",
+        "ConfirmPassword": "Confirmar contraseña",
+        "Register": "Registrarse",
+        "RegisterError": "Por favor, verifique sus datos y vuelva a intentarlo.",
+        "RegisterErrorMessage": "Por favor, verifique sus datos y vuelva a intentarlo."
+    },
     "PokemonWidgetCard": {
         "Attack": "Ataque",
         "Defending": "Defensa",

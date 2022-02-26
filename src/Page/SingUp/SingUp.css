@@ -1,4 +1,4 @@
-.Login_Header {
+.SingUp_Header {
     align-items: center;
     background-color: #011837;
     color: white;
@@ -9,11 +9,11 @@
     width: 100%;
 }
 
-.Login_Header_Image {
+.SingUp_Header_Image {
     width: 200px;
     margin-left: 30px;
 }
-.Login_Language_Image{
+.SingUp_Language_Image{
     width: 50px;
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@
     margin-right: 10px;
 }
 
-.Login_Container {
+.SingUp_Container {
     min-height: calc(100vh - 80px);
     display: flex;
     align-items: center;
@@ -32,7 +32,7 @@
     padding: 0px 30px;
 }
 
-.Login_Content {
+.SingUp_Content {
     width: 300px;
     display: flex;
     flex-direction: column;
@@ -47,7 +47,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .Login_Content {
+    .SingUp_Content {
         background-color: transparent;
         border: none;
         box-shadow: none;
@@ -56,17 +56,17 @@
     }
 }
 
-.Login_Content_H2{
+.SingUp_Content_H2{
     font-size: 1.6rem;
     text-transform: capitalize;
     font-family: 'Mochiy Pop One', sans-serif;
 }
-.Login_Content_Form {
+.SingUp_Content_Form {
     display: flex;
     flex-direction: column;
 }
 
-.Login_Content_Form_Input {
+.SingUp_Content_Form_Input {
     background-color: transparent;
     border-bottom: 2px solid white;
     border-left: 0px;
@@ -81,14 +81,14 @@
     padding: 0px 20px;
 }
 
-.Login_Content_Form_Input::placeholder {
+.SingUp_Content_Form_Input::placeholder {
     color: white;
     font-size: 1rem;
     text-transform: capitalize;
     font-family: 'Mochiy Pop One', sans-serif;
 }
 
-.Login_Content_Form_Button {
+.SingUp_Content_Form_Button {
     background-color: rgba(255, 255, 255, 0.3);
     border: none;
     border-radius: 25px;
@@ -102,14 +102,14 @@
     margin: 10px 0px;
 }
 
-.Login_Content_Form_Forget {
+.SingUp_Content_Form_Forget {
     color: white;
     display: flex;
     justify-content: space-between;
     margin-top: 10px;
 }
 
-.Login_Content_Form_Forget a {
+.SingUp_Content_Form_Forget a {
     color: white;
     font-size: 1rem;
     text-transform: capitalize;
@@ -117,7 +117,7 @@
     text-decoration: none;
 }
 
-.Login_Content_Form_Label {
+.SingUp_Content_Form_Label {
     font-size: 14px;
 }
 
@@ -136,26 +136,26 @@
     width: 30px;
 }
 
-.Login_Container_Register {
+.SingUp_Container_Register {
     font-size: 1rem;
     text-transform: capitalize;
     font-family: 'Mochiy Pop One', sans-serif;
 }
 
-.Login_Container_Register a {
+.SingUp_Container_Register a {
     color: white;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
 }
 
-.Login_Container_Register a {
+.SingUp_Container_Register a {
     color: white;
     font-weight: bold;
     font-size: 16px;
     text-decoration: none;
 }
 
-.Login_Container_Register a:hover {
+.SingUp_Container_Register a:hover {
     text-decoration: underline;
 }

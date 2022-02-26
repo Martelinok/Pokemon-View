@@ -22,6 +22,16 @@
         "LoginErrorMessage":"Invalid email or password",
         "Go":"Catch them"
     },
+    "SingUp":{
+        "SingUp": "Sing Up",
+        "Name": "Name",
+        "Email": "Email",
+        "Password": "Password",
+        "ConfirmPassword": "Confirm Password",
+        "Register": "Register",
+        "RegisterError": "Register Error",
+        "RegisterErrorMessage": "Email already exists"
+    },
     "PokemonWidgetCard":{
         "Attack":"Attack",
         "Defending":"Defending",
