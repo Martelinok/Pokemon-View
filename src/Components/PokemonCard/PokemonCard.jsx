@@ -17,21 +17,15 @@ import "./PokemonCard.css";
  */
 function PokemonCard({ PokemonInfo, FavoritesPokemon, dispatch }) {
   let t = useTranslate("PokemonWidgetCard");
-  const setFavorites = (id)=>{
+  const setFavorites = (id) => {
     let data = Array.from(FavoritesPokemon);
-    let newData=[]
-    if(data.includes(id)){
-      data.forEach((item)=>{
-        if(item !== id){
-          newData.push(item)
-        }
-      })
-      dispatch({ type: "SET_FAVORITES_POKEMONS", payload: newData })
-
-    } else{
-      data.push(id)
-      dispatch({ type: "SET_FAVORITES_POKEMONS", payload: data })
+    let newData = []
+    if (data.includes(id)) {
+      newData = data.filter(item => item !== id);
+    } else {
+      newData = data.concat(id);
     }
+    dispatch({ type: "SET_FAVORITES_POKEMONS", payload: newData })
   }
   return (
     <React.Fragment>
@@ -43,7 +37,7 @@ function PokemonCard({ PokemonInfo, FavoritesPokemon, dispatch }) {
             alt="Avatar"
             className="PokemonCard_Image"
           />
-          <div className="PokemonCard_Mid_Image" onClick={(e) => {e.stopPropagation(); setFavorites(PokemonInfo.id)}}>
+          <div className="PokemonCard_Mid_Image" onClick={(e) => { e.stopPropagation(); setFavorites(PokemonInfo.id) }}>
             <SvgIcon
               name="Star"
               fill={FavoritesPokemon.includes(PokemonInfo.id) ? "#FFD700" : "#FFFFFF"}
