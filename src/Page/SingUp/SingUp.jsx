@@ -10,6 +10,7 @@ import { decrypt } from "../../Functions/Encript"
 /* ---------------------------- Import Components --------------------------- */
 import Logo from "../../Assets/Images/Pokemon-Logo.png";
 import SvgIcon from "../../Assets/Images/SvgIcon";
+import Loader from "../../Components/Loader/Loader";
 /* ------------------------------ Import Style ------------------------------ */
 import "./SingUp.css";
 function SingUp({ dispatch }) {
@@ -21,6 +22,7 @@ function SingUp({ dispatch }) {
   const [confirmEmail, setConfirmEmail] = useState("");
   const [password, setPassword] = useState("");
   const [ConfirmPassword, setPasswordConfirm] = useState("");
+  const [Loading, setLoading] = useState(false);
   let t = useTranslate("SingUp");
   let cookies = new Cookies();
 
@@ -50,7 +52,10 @@ function SingUp({ dispatch }) {
           setPassword("");
           setPasswordConfirm("");
         } else {
-          handleLogin()
+          setLoading(true);
+          setTimeout(() => {
+            handleLogin()
+          }, 1500);
         }
       }
     } else if (name.length === 0) {
@@ -68,7 +73,8 @@ function SingUp({ dispatch }) {
     let responseUser
     let validatePassword = false
     try {
-      responseUser = await fetch(email);;
+      responseUser = await fetch(email);
+      console.log("responseUser", responseUser);
       if (responseUser.data.length > 0) {
         validatePassword = await decrypt(password, responseUser.data[0].password)
       }
@@ -84,12 +90,16 @@ function SingUp({ dispatch }) {
         }, { path: '/' });
         cookies.set('token', true, { path: '/' });
         dispatch({ type: "SET_FAVORITES_POKEMONS", payload: responseUser.data[0].favorites });
+        setLoading(false)
         history("/Home");
       } else {
         alert(t("LoginError"))
       }
     }
   };
+  if (Loading) {
+    return <Loader />;
+  }
   return (
     <React.Fragment>
       <div className="SingUp_Header">

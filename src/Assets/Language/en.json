@@ -35,7 +35,8 @@
         "NameRequired": "Name is required",
         "EmailRequired": "Email is required",
         "PasswordNotMatch": "Password not match",
-        "EmailNotMatch": "Email not match"
+        "EmailNotMatch": "Email not match",
+        "LoginError":"something went wrong"
     },
     "PokemonWidgetCard":{
         "Attack":"Attack",
