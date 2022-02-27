@@ -18,7 +18,7 @@
         "Google":"Login with Google",
         "Register":"Register",
         "NotAccount":"Don't have an account? ",
-        "LoginError":"Login Error",
+        "LoginError":"email or password is incorrect",
         "LoginErrorMessage":"Invalid email or password",
         "Go":"Catch them"
     },
@@ -29,6 +29,7 @@
         "ConfirmEmail": "Confirm Email",
         "Password": "Password",
         "ConfirmPassword": "Confirm Password",
+        "Register": "Register",
         "RegisterError": "Register Error",
         "RegisterErrorMessage": "Email already exists",
         "NameRequired": "Name is required",

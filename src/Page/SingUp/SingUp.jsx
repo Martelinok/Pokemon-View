@@ -4,7 +4,8 @@ import { useAuth } from "../../Components/Context/Auth";
 import { connect } from "react-redux";
 import { Cookies } from 'react-cookie';
 import { useTranslate } from 'react-translate';
-import { create } from "../../Functions/DbService";
+import { create, fetch } from "../../Functions/DbService";
+import { decrypt } from "../../Functions/Encript"
 
 /* ---------------------------- Import Components --------------------------- */
 import Logo from "../../Assets/Images/Pokemon-Logo.png";
@@ -33,7 +34,9 @@ function SingUp({ dispatch }) {
 
   const createUser = async () => {
     let response
-    if (name.length > 0 && email.length > 0 && password.length > 0 && ConfirmPassword.length > 0 && password === ConfirmPassword && email === confirmEmail) {
+    // eslint-disable-next-line no-useless-escape
+    let validation = /^(([^<>()[\]\.,;:\s@\"]+(\.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+    if (name.length > 0 && email.length > 0 && validation.test(email) && password.length > 0 && ConfirmPassword.length > 0 && password === ConfirmPassword && email === confirmEmail) {
       try {
         response = await create({ name: name, email: email, password: password, favorites: [] });
       } catch (error) {
@@ -43,23 +46,50 @@ function SingUp({ dispatch }) {
           alert(t("RegisterErrorMessage"))
           setName("");
           setEmail("");
+          setConfirmEmail("");
           setPassword("");
           setPasswordConfirm("");
         } else {
-          history("/");
+          handleLogin()
         }
       }
-    } else if(name.length === 0){
+    } else if (name.length === 0) {
       alert(t("NameRequired"))
-    } else if(email.length === 0){
+    } else if (email.length === 0 || !validation.test(email)) {
       alert(t("EmailRequired"))
-    } else if( password !== ConfirmPassword){
+    } else if (password !== ConfirmPassword) {
       alert(t("PasswordNotMatch"))
-    } else if(email !== confirmEmail){
+    } else if (email !== confirmEmail) {
       alert(t("EmailNotMatch"))
     }
-  }
+  };
 
+  const handleLogin = async () => {
+    let responseUser
+    let validatePassword = false
+    try {
+      responseUser = await fetch(email);;
+      if (responseUser.data.length > 0) {
+        validatePassword = await decrypt(password, responseUser.data[0].password)
+      }
+    } catch (error) {
+      console.log(error);
+    } finally {
+      if (responseUser.data.length > 0 && validatePassword) {
+        cookies.set('user', {
+          id: responseUser.data[0].id,
+          name: responseUser.data[0].name,
+          email: responseUser.data[0].email,
+          favorites: responseUser.data[0].favorites,
+        }, { path: '/' });
+        cookies.set('token', true, { path: '/' });
+        dispatch({ type: "SET_FAVORITES_POKEMONS", payload: responseUser.data[0].favorites });
+        history("/Home");
+      } else {
+        alert(t("LoginError"))
+      }
+    }
+  };
   return (
     <React.Fragment>
       <div className="SingUp_Header">
@@ -110,7 +140,7 @@ function SingUp({ dispatch }) {
               placeholder={t("ConfirmPassword")}
               value={ConfirmPassword}
               onChange={(e) => setPasswordConfirm(e.target.value)}
-              onKeyPress={(e) => { if (e.key === "Enter") createUser() }} 
+              onKeyPress={(e) => { if (e.key === "Enter") createUser() }}
             />
             <div className="SingUp_Content_Form_Button" onClick={() => createUser()}>{t("Register")}</div>
           </form>

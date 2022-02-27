@@ -30,7 +30,7 @@
         "Password": "Contraseña",
         "ConfirmPassword": "Confirmar contraseña",
         "Register": "Registrarse",
-        "RegisterErrorMessage": "Por favor, verifique sus datos y vuelva a intentarlo.",
+        "RegisterErrorMessage": "El email ya existe, por favor intente con otro.",
         "NameRequired": "El nombre es requerido",
         "EmailRequired": "El correo electrónico es requerido",
         "PasswordNotMatch": "Las contraseñas no coinciden",

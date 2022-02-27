@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Cookies } from 'react-cookie';
 import { useTranslate } from 'react-translate';
 import { fetch } from "../../Functions/DbService";
+import { decrypt } from "../../Functions/Encript"
 
 /* ---------------------------- Import Components --------------------------- */
 import Logo from "../../Assets/Images/Pokemon-Logo.png";
@@ -26,20 +27,25 @@ function Login({ dispatch }) {
     cookies.remove('language');
     cookies.set('language', language)
     setUser(language)
-  }
+  };
+
   const handleLogin = async () => {
     let response
+    let validatePassword = false
     try {
-      response = await fetch(email, password);
+      response = await fetch(email);
+      if (response.data.length > 0) {
+        validatePassword = await decrypt(password, response.data[0].password)
+      }
     } catch (error) {
       console.log(error);
-    }finally{
-      if (response.data.length > 0) {
+    } finally {
+      if (response.data.length > 0 && validatePassword) {
         cookies.set('user', {
-          id:response.data[0].id,
-          name:response.data[0].name,
-          email:response.data[0].email,
-          favorites:response.data[0].favorites,
+          id: response.data[0].id,
+          name: response.data[0].name,
+          email: response.data[0].email,
+          favorites: response.data[0].favorites,
         }, { path: '/' });
         cookies.set('token', true, { path: '/' });
         dispatch({ type: "SET_FAVORITES_POKEMONS", payload: response.data[0].favorites });
@@ -48,8 +54,7 @@ function Login({ dispatch }) {
         alert(t("LoginError"))
       }
     }
-   
-  }
+  };
 
   return (
     <React.Fragment>
@@ -63,22 +68,22 @@ function Login({ dispatch }) {
         <div className="Login_Content">
           <h2 className="Login_Content_H2">{t("Login")}</h2>
           <form action="" className="Login_Content_Form">
-            <input 
-            type="email" 
-            className="Login_Content_Form_Input" 
-            placeholder={t("Email")} 
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            <input
+              type="email"
+              className="Login_Content_Form_Input"
+              placeholder={t("Email")}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
             />
-            <input 
-            type="password"
-            className="Login_Content_Form_Input" 
-            placeholder={t("Password")}
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            onKeyPress={(e) => { if (e.key === "Enter") handleLogin() }} 
+            <input
+              type="password"
+              className="Login_Content_Form_Input"
+              placeholder={t("Password")}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              onKeyPress={(e) => { if (e.key === "Enter") handleLogin() }}
             />
-            <div className="Login_Content_Form_Button" onClick={() =>handleLogin()}>{t("Go")}</div>
+            <div className="Login_Content_Form_Button" onClick={() => handleLogin()}>{t("Go")}</div>
             {/* <div className="Login_Content_Form_Forget">
               <a href="/">{t("ForgotPassword")}</a>
             </div> */}
@@ -89,7 +94,7 @@ function Login({ dispatch }) {
             </div>
           </div> */}
           <p className="Login_Container_Register">{t("NotAccount")}</p>
-          <p className="Login_Register_P" onClick={()=>history("/SingUp")}>{t("Register")}</p>
+          <p className="Login_Register_P" onClick={() => history("/SingUp")}>{t("Register")}</p>
         </div>
       </div>
     </React.Fragment>
