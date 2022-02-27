@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://192.168.0.22:8080/Users";
+const url = "http://localhost:5000/Users";
 
 export const update = (id, param) => {
     return axios.patch(`${url}/${id}`, param);
