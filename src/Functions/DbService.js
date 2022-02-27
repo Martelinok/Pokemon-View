@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:5000/Users";
+const url = "https://quiet-mesa-11047.herokuapp.com/Users";
 
 export const update = (id, param) => {
     return axios.patch(`${url}/${id}`, param);
