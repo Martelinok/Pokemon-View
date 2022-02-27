@@ -14,17 +14,3 @@ export const FetchPokemonsInfo = (url) => {
     url
   })
 }
-
-export const getUrl = (id) => {
-  const url = `https://pokeapi.co/api/v2/pokemon/${id}`
-  return url
-}
-
-
-export const getPokeEntry = (id) => {
-  const url = `https://pokeapi.co/api/v2/pokemon-species/${id}/`
-  return axios({
-    method: 'GET',
-    url
-  })
-}

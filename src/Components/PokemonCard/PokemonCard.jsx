@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
 import { useTranslate } from 'react-translate';
+import { Cookies } from 'react-cookie';
+import { update } from "../../Functions/DbService";
+
 
 /* ---------------------------- Import Components --------------------------- */
 import SvgIcon from "../../Assets/Images/SvgIcon";
@@ -17,15 +20,26 @@ import "./PokemonCard.css";
  */
 function PokemonCard({ PokemonInfo, FavoritesPokemon, dispatch, setId }) {
   let t = useTranslate("PokemonWidgetCard");
-  const setFavorites = (id) => {
-    let data = Array.from(FavoritesPokemon);
+  let cookies = new Cookies();
+
+  const setFavorites = async (id) => {
+    let user = cookies.get("user");
     let newData = []
-    if (data.includes(id)) {
-      newData = data.filter(item => item !== id);
-    } else {
-      newData = data.concat(id);
+    try {
+      let data = Array.from(FavoritesPokemon);
+      if (data.includes(id)) {
+        newData = data.filter(item => item !== id);
+      } else {
+        newData = data.concat(id);
+      }
+    } catch (error) {
+      console.log("error", error)
+    } finally{
+      cookies.set("user", { ...user, favorites: newData });
+      dispatch({ type: "SET_FAVORITES_POKEMONS", payload: newData })
+      await update(cookies.get('user').id, {favorites: newData });
     }
-    dispatch({ type: "SET_FAVORITES_POKEMONS", payload: newData })
+
   }
   return (
     <React.Fragment>

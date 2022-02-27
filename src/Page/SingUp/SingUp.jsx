@@ -1,26 +1,65 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Components/Context/Auth";
 import { connect } from "react-redux";
 import { Cookies } from 'react-cookie';
 import { useTranslate } from 'react-translate';
+import { create } from "../../Functions/DbService";
+
 /* ---------------------------- Import Components --------------------------- */
 import Logo from "../../Assets/Images/Pokemon-Logo.png";
-import Google from "../../Assets/Images/google-icon.png";
 import SvgIcon from "../../Assets/Images/SvgIcon";
 /* ------------------------------ Import Style ------------------------------ */
 import "./SingUp.css";
 function SingUp({ dispatch }) {
+
   const { user, setUser } = useAuth();
   const history = useNavigate();
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [confirmEmail, setConfirmEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [ConfirmPassword, setPasswordConfirm] = useState("");
   let t = useTranslate("SingUp");
   let cookies = new Cookies();
+
+
   const changelaanguage = (language) => {
     dispatch({ type: "SET_LANGUAGE", payload: language });
     cookies.remove('language');
     cookies.set('language', language)
     setUser(language)
   }
+
+  const createUser = async () => {
+    let response
+    if (name.length > 0 && email.length > 0 && password.length > 0 && ConfirmPassword.length > 0 && password === ConfirmPassword && email === confirmEmail) {
+      try {
+        response = await create({ name: name, email: email, password: password, favorites: [] });
+      } catch (error) {
+        console.log(error);
+      } finally {
+        if (response) {
+          alert(t("RegisterErrorMessage"))
+          setName("");
+          setEmail("");
+          setPassword("");
+          setPasswordConfirm("");
+        } else {
+          history("/");
+        }
+      }
+    } else if(name.length === 0){
+      alert(t("NameRequired"))
+    } else if(email.length === 0){
+      alert(t("EmailRequired"))
+    } else if( password !== ConfirmPassword){
+      alert(t("PasswordNotMatch"))
+    } else if(email !== confirmEmail){
+      alert(t("EmailNotMatch"))
+    }
+  }
+
   return (
     <React.Fragment>
       <div className="SingUp_Header">
@@ -33,10 +72,47 @@ function SingUp({ dispatch }) {
         <div className="SingUp_Content">
           <h2 className="SingUp_Content_H2">{t("SingUp")}</h2>
           <form action="" className="SingUp_Content_Form">
-            <input type="text" className="SingUp_Content_Form_Input" placeholder={t("Name")} />
-            <input type="email" className="SingUp_Content_Form_Input" placeholder={t("Email")} />
-            <input type="text" className="SingUp_Content_Form_Input" placeholder={t("Password")} />
-            <button className="SingUp_Content_Form_Button" onClick={() => history("/")}>{t("Register")}</button>
+            <input
+              type="text"
+              className="SingUp_Content_Form_Input"
+              placeholder={t("Name")}
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <input
+              type="email"
+              name="New_Email"
+              className="SingUp_Content_Form_Input"
+              placeholder={t("Email")}
+              value={email}
+              onChange={(e) => setEmail(e.target.value.toLocaleLowerCase())}
+            />
+            <input
+              type="email"
+              name="New_Email"
+              className="SingUp_Content_Form_Input"
+              placeholder={t("ConfirmEmail")}
+              value={confirmEmail}
+              onChange={(e) => setConfirmEmail(e.target.value.toLocaleLowerCase())}
+            />
+            <input
+              type="password"
+              name="New_Password"
+              className="SingUp_Content_Form_Input"
+              placeholder={t("Password")}
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <input
+              type="password"
+              name="New_Password2"
+              className="SingUp_Content_Form_Input"
+              placeholder={t("ConfirmPassword")}
+              value={ConfirmPassword}
+              onChange={(e) => setPasswordConfirm(e.target.value)}
+              onKeyPress={(e) => { if (e.key === "Enter") createUser() }} 
+            />
+            <div className="SingUp_Content_Form_Button" onClick={() => createUser()}>{t("Register")}</div>
           </form>
         </div>
       </div>

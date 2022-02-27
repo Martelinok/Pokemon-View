@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { GetPokemonData } from "../../Functions/BuildData"
 import { useTranslate } from 'react-translate';
+import { Cookies } from 'react-cookie';
 /* ---------------------------- Import Componets ---------------------------- */
 import NavBar from "../../Components/NavBar/NavBar";
 import PokemonCard from "../../Components/PokemonCard/PokemonCard";
@@ -12,11 +13,11 @@ import Modal from "../../Components/Modal/Modal";
 import "./Home.css";
 function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
   const t = useTranslate("Global");
+  let cookies = new Cookies();
   const [modal, setModal] = useState(false);
   const [pokemonId, setPokemonId] = useState(0);
   useEffect(() => {
     FetchPokemonsData()
-    dispatch({ type: 'SET_INPUT_SEARCH_VALUE', payload: "" })
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -29,6 +30,8 @@ function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
       console.log("error", error)
     } finally {
       dispatch({ type: "SET_POKEMONS", payload: data })
+      dispatch({ type: 'SET_INPUT_SEARCH_VALUE', payload: "" })
+      dispatch({ type: 'SET_FAVORITES_POKEMONS', payload: cookies.get("user").favorites })
       dispatch({ type: "SET_LOADING", payload: false })
     }
   };

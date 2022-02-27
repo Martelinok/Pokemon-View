@@ -26,11 +26,15 @@
         "SingUp": "Registrarse",
         "Name": "Nombre",
         "Email": "Correo electrónico",
+        "ConfirmEmail": "Confirmar correo electrónico",
         "Password": "Contraseña",
         "ConfirmPassword": "Confirmar contraseña",
         "Register": "Registrarse",
-        "RegisterError": "Por favor, verifique sus datos y vuelva a intentarlo.",
-        "RegisterErrorMessage": "Por favor, verifique sus datos y vuelva a intentarlo."
+        "RegisterErrorMessage": "Por favor, verifique sus datos y vuelva a intentarlo.",
+        "NameRequired": "El nombre es requerido",
+        "EmailRequired": "El correo electrónico es requerido",
+        "PasswordNotMatch": "Las contraseñas no coinciden",
+        "EmailNotMatch": "Los correos electrónicos no coinciden"
     },
     "PokemonWidgetCard": {
         "Attack": "Ataque",

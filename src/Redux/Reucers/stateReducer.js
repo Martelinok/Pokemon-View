@@ -1,5 +1,5 @@
 const INITIALSTATE = {
-    Loading: false,
+    Loading: true,
     navegationOptions:"Home",
     Pokemons:[],
     FavoritesPokemon:[],

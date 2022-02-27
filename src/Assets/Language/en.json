@@ -26,11 +26,15 @@
         "SingUp": "Sing Up",
         "Name": "Name",
         "Email": "Email",
+        "ConfirmEmail": "Confirm Email",
         "Password": "Password",
         "ConfirmPassword": "Confirm Password",
-        "Register": "Register",
         "RegisterError": "Register Error",
-        "RegisterErrorMessage": "Email already exists"
+        "RegisterErrorMessage": "Email already exists",
+        "NameRequired": "Name is required",
+        "EmailRequired": "Email is required",
+        "PasswordNotMatch": "Password not match",
+        "EmailNotMatch": "Email not match"
     },
     "PokemonWidgetCard":{
         "Attack":"Attack",

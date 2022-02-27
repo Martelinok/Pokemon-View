@@ -62,7 +62,7 @@ function NavBar({ dispatch, navegationOptions }) {
               <SvgIcon name="Menu" fill='#FFCB05' />
             </div>
           </div>
-          <div className="NavBar_Logo_Content">
+          <div className="NavBar_Logo_Content" onClick={ ()=> onClickOption("Home")}>
             <img className="NavBar_Logo_Image" src={Logo} alt="Logo" />
           </div>
           <div className="Navbar_Options_Content">

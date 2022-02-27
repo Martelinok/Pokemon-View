@@ -1,10 +1,12 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Provider } from "react-redux";
 import { TranslatorProvider } from "react-translate";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import configureStore from './Redux/Store/Store';
 import { Cookies } from "react-cookie";
 import { AuthContext } from "./Components/Context/Auth";
+import PrivateRoute from "./Components/Context/PrivateRoute";
+import PublicRoute from "./Components/Context/PublicRoute";
 /* ------------------------------- Import Page ------------------------------ */
 import Home from "./Page/Home/Home"
 import Favorites from "./Page/Favorites/Favorites";
@@ -27,26 +29,20 @@ function App() {
         >
           <BrowserRouter>
             <Routes>
-              <Route
-                exact path="/"
-                element={<Login />}
-              />
-              <Route
-                exact path="/SingUp"
-                element={<SingUp />}
-              />
-              <Route
-                exact path="/Home"
-                element={<Home />}
-              />
-              <Route
-                exact path="/favorites"
-                element={<Favorites />}
-              />
-              <Route
-                exact path="/profile"
-                element={<Profile />}
-              />
+              <Route exact path='/' element={<PublicRoute />}>
+                <Route exact path='/' element={<Login />} />
+              </Route> <Route exact path='/SingUp' element={<PublicRoute />}>
+                <Route exact path='/SingUp' element={<SingUp />} />
+              </Route>
+              <Route exact path='/Home' element={<PrivateRoute />}>
+                <Route exact path='/Home' element={<Home />} />
+              </Route>
+              <Route exact path='/Favorites' element={<PrivateRoute />}>
+                <Route exact path='/Favorites' element={<Favorites />} />
+              </Route>
+              <Route exact path='/Profile' element={<PrivateRoute />}>
+                <Route exact path='/Profile' element={<Profile />} />
+              </Route>
             </Routes>
           </BrowserRouter>
         </TranslatorProvider>

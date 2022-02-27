@@ -67,7 +67,6 @@ function Favorites({ dispatch, FavoritesPokemon, Pokemons, InputSearchValue }) {
   )
 }
 const mapStateToProps = (state) => ({
-  Loading: state.stateReducer.Loading,
   Pokemons: state.stateReducer.Pokemons,
   FavoritesPokemon: state.stateReducer.FavoritesPokemon,
   InputSearchValue: state.stateReducer.InputSearchValue,
