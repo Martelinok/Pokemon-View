@@ -51,20 +51,20 @@ function Home({ dispatch, Pokemons, InputSearchValue }) {
 
   const filterPokemon = () => {
     if (InputSearchValue.length === 0) {
-      return Pokemons.slice(currentPage, currentPage + 10)
+      return Pokemons.slice(currentPage, currentPage + 20)
     } else {
       return Pokemons.filter(item => item.name.toLowerCase().includes(InputSearchValue.toLowerCase()))
     }
   }
   const nextPage = () => {
-    if (Pokemons.filter(item => item.name.toLowerCase().includes(InputSearchValue.toLowerCase())).length > currentPage + 10) {
-      setCurrentPage(currentPage + 10)
+    if (Pokemons.filter(item => item.name.toLowerCase().includes(InputSearchValue.toLowerCase())).length > currentPage + 20) {
+      setCurrentPage(currentPage + 20)
     } else {
     }
   }
   const backPage = () => {
     if (currentPage > 0) {
-      setCurrentPage(currentPage - 10)
+      setCurrentPage(currentPage - 20)
     }
   }
   const filterData = (data) => {
@@ -112,7 +112,7 @@ function Home({ dispatch, Pokemons, InputSearchValue }) {
                 <button className={`Home_Pages_Button_Styles ${currentPage === 0 ? true : false}`} onClick={() => backPage()}>{t("Previous")}</button>
               </div>
               <div className="Home_Pages_Button_Contet">
-                <button className={`Home_Pages_Button_Styles ${currentPage + 10 >= Pokemons.length ? true : false}`} onClick={() => nextPage()}>{t("Next")}</button>
+                <button className={`Home_Pages_Button_Styles ${currentPage + 20 >= Pokemons.length ? true : false}`} onClick={() => nextPage()}>{t("Next")}</button>
               </div>
             </div>
           </div>
