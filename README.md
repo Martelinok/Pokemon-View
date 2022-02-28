@@ -1,3 +1,34 @@
+# Pokemons
+## Kevin Martello Mayorga Cleveland
+
+This web app is designed to query an api of pokemons and list each of them.
+
+###### 
+- This project is hosted on a google cloud instance and is assigned the domain www.martelinok-poke.live
+- The backend is hosted on heroku and uses Json-server for user storage.
+
+
+## Features
+
+- The front-end is developed in ReactJs
+- The back-end is developed in nodeJs with Json-server
+
+
+## Installation
+
+Clone the repository:
+
+ - https://github.com/Martelinok/Pokemon-View.git
+ 
+
+Clone the back-end:
+
+ - https://github.com/Martelinok/JsonServer-Poke.git
+
+- To run the local project you must run the back-end project with the npm run server command, it will run on localhost:5000.
+
+To point to the local back-end you must change the url in the react project, located in the route:
+src/Functions/DbService.js
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
