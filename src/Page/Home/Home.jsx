@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { connect } from "react-redux";
 import { GetPokemonData } from "../../Functions/BuildData"
 import { useTranslate } from 'react-translate';
@@ -22,6 +22,7 @@ import "./Home.css";
 function Home({ dispatch, Pokemons, InputSearchValue }) {
   const t = useTranslate("Global");
   let cookies = new Cookies();
+  const scrollRef = useRef();
 
   const [modal, setModal] = useState(false);
   const [pokemonId, setPokemonId] = useState(0);
@@ -61,11 +62,13 @@ function Home({ dispatch, Pokemons, InputSearchValue }) {
       setCurrentPage(currentPage + 20)
     } else {
     }
+    scrollRef.current.scrollIntoView({ behavior: "smooth" });
   }
   const backPage = () => {
     if (currentPage > 0) {
       setCurrentPage(currentPage - 20)
     }
+    scrollRef.current.scrollIntoView({ behavior: "smooth" });
   }
   const filterData = (data) => {
     return data.name.toLowerCase().includes(InputSearchValue.toLowerCase())
@@ -82,7 +85,7 @@ function Home({ dispatch, Pokemons, InputSearchValue }) {
           setModal={setModal}
         />
       }
-      <div className="Home_Container">
+      <div className="Home_Container" ref={scrollRef} >
         <div className="Home_Content">
           <div className="Home_Input_Content">
             <div className="Home_Input_Style">
