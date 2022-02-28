@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const FetchPokemons = () => {
-  const url = `https://pokeapi.co/api/v2/pokemon/?limit=20&offset=0`
+  const url = `https://pokeapi.co/api/v2/pokemon/?limit=150&offset=0`
   return axios({
     method: 'GET',
     url

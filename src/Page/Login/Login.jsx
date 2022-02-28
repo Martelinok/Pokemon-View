@@ -13,6 +13,12 @@ import Logo from "../../Assets/Images/Pokemon-Logo.png";
 import SvgIcon from "../../Assets/Images/SvgIcon";
 /* ------------------------------ Import Style ------------------------------ */
 import "./Login.css";
+/**
+ * This is a componet to show the NavBar
+ * @author [Kevin Martello Mayorga Cleveland]
+ * @version 1.0.0
+ * @param  {Function} dispatch - Is the function to dispatch the action to the reducer
+ */
 function Login({ dispatch }) {
 
   const { user, setUser } = useAuth();

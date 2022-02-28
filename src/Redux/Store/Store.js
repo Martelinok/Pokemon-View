@@ -11,7 +11,7 @@ const configureStore = () => {
   store.subscribe(
     throttle(() => {
       saveState({
-        stateReducer: store.getState().stateReducer,
+        // stateReducer: store.getState().stateReducer,
       });
     }),
     1000

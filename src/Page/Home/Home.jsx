@@ -11,11 +11,23 @@ import InputSearch from "../../Components/InputSearch/InputSearch";
 import Modal from "../../Components/Modal/Modal";
 /* ------------------------------ Import Style ------------------------------ */
 import "./Home.css";
-function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
+/**
+ * This is a componet to show the NavBar
+ * @author [Kevin Martello Mayorga Cleveland]
+ * @version 1.0.0
+ * @param  {Function} dispatch - Is the function to dispatch the action to the reducer
+ * @param  {Array} Pokemons - Is the array of pokemon
+ * @param  {String} InputSearchValue - The value of the input search
+ */
+function Home({ dispatch, Pokemons, InputSearchValue }) {
   const t = useTranslate("Global");
   let cookies = new Cookies();
+
   const [modal, setModal] = useState(false);
   const [pokemonId, setPokemonId] = useState(0);
+  const [Loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(0);
+
   useEffect(() => {
     FetchPokemonsData()
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -24,7 +36,7 @@ function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
   const FetchPokemonsData = async () => {
     let data
     try {
-      dispatch({ type: "SET_LOADING", payload: true })
+      // dispatch({ type: "SET_LOADING", payload: true })
       data = await GetPokemonData()
     } catch (error) {
       console.log("error", error)
@@ -32,14 +44,32 @@ function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
       dispatch({ type: "SET_POKEMONS", payload: data })
       dispatch({ type: 'SET_INPUT_SEARCH_VALUE', payload: "" })
       dispatch({ type: 'SET_FAVORITES_POKEMONS', payload: cookies.get("user").favorites })
-      dispatch({ type: "SET_LOADING", payload: false })
+      // dispatch({ type: "SET_LOADING", payload: false })
+      setLoading(false)
     }
   };
 
+  const filterPokemon = () => {
+    if (InputSearchValue.length === 0) {
+      return Pokemons.slice(currentPage, currentPage + 10)
+    } else {
+      return Pokemons.filter(item => item.name.toLowerCase().includes(InputSearchValue.toLowerCase()))
+    }
+  }
+  const nextPage = () => {
+    if (Pokemons.filter(item => item.name.toLowerCase().includes(InputSearchValue.toLowerCase())).length > currentPage + 10) {
+      setCurrentPage(currentPage + 10)
+    } else {
+    }
+  }
+  const backPage = () => {
+    if (currentPage > 0) {
+      setCurrentPage(currentPage - 10)
+    }
+  }
   const filterData = (data) => {
     return data.name.toLowerCase().includes(InputSearchValue.toLowerCase())
   }
-
   if (Loading) {
     return <Loader />;
   }
@@ -47,9 +77,9 @@ function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
   return (
     <React.Fragment>
       <NavBar />
-      { modal &&
-        <Modal data ={Pokemons.filter(item=> item.id === pokemonId)[0]}
-        setModal={setModal}
+      {modal &&
+        <Modal data={Pokemons.filter(item => item.id === pokemonId)[0]}
+          setModal={setModal}
         />
       }
       <div className="Home_Container">
@@ -67,14 +97,24 @@ function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
           <div className="Home_PokemonCard_Content">
             {Pokemons.length > 0 &&
               Pokemons.filter(data => filterData(data)).length > 0 ?
-              Pokemons.filter(data => filterData(data)).map((Pokemon) => {
-                return <PokemonCard PokemonInfo={Pokemon} key={Pokemon.id} setId={(e)=> {setPokemonId(e);setModal(true)}}/>
+              filterPokemon().map((Pokemon) => {
+                return <PokemonCard PokemonInfo={Pokemon} key={Pokemon.id} setId={(e) => { setPokemonId(e); setModal(true) }} />
               })
               :
               <div className="Home_PokemonCard_Empty">
                 <h1 className="Home_PokemonCard_Empty_Text">{t("NoFound")}</h1>
               </div>
             }
+          </div>
+          <div className="Home_Pages_Container">
+            <div className="Home_Pages_Content">
+              <div className="Home_Pages_Button_Contet">
+                <button className={`Home_Pages_Button_Styles ${currentPage === 0 ? true : false}`} onClick={() => backPage()}>{t("Previous")}</button>
+              </div>
+              <div className="Home_Pages_Button_Contet">
+                <button className={`Home_Pages_Button_Styles ${currentPage + 10 >= Pokemons.length ? true : false}`} onClick={() => nextPage()}>{t("Next")}</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -83,7 +123,6 @@ function Home({ dispatch, Loading, Pokemons, InputSearchValue }) {
 
 }
 const mapStateToProps = (state) => ({
-  Loading: state.stateReducer.Loading,
   Pokemons: state.stateReducer.Pokemons,
   InputSearchValue: state.stateReducer.InputSearchValue,
 

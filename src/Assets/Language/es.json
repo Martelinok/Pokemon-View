@@ -3,7 +3,9 @@
     "Global": {
         "SearchPokemon": "Buscar Pokémon",
         "NoFavorites": "No hay Pokémon favoritos",
-        "NoFound": "No se encontro ningún Pokémon"
+        "NoFound": "No se encontro ningún Pokémon",
+        "Next": "Siguiente",
+        "Previous": "Anterior"
     },
     "NavBar": {
         "Home": "Inicio",

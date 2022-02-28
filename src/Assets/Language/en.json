@@ -3,7 +3,9 @@
     "Global":{
         "SearchPokemon": "Search Pokemon",
         "NoFavorites": "No favorites Pokemon",
-        "NoFound": "No Pokemon found"
+        "NoFound": "No Pokemon found",
+        "Next": "Next",
+        "Previous": "Previous"
     },
     "NavBar":{
         "Home":"Home",
@@ -40,14 +42,14 @@
     },
     "PokemonWidgetCard":{
         "Attack":"Attack",
-        "Defending":"Defending",
+        "Defending":"Defence",
         "Special":"Special"
     },
     "Modal":{
         "Attack":"Attack",
-        "Defending":"Defending",
+        "Defending":"Defence",
         "EspecialAttack":"Special Attack",
-        "SpecialDefending":"Special Defending",
+        "SpecialDefending":"Special Defence",
         "Speed":"Speed",
         "Weight":"Weight",
         "Exp": "Exp"

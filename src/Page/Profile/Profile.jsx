@@ -7,8 +7,12 @@ import { update } from "../../Functions/DbService";
 import NavBar from "../../Components/NavBar/NavBar";
 /* ------------------------------ Import Style ----------------------------- */
 import "./Profile.css";
-
-function Profile(params) {
+/**
+ * This is a componet to show the NavBar
+ * @author [Kevin Martello Mayorga Cleveland]
+ * @version 1.0.0
+ */
+function Profile({params}) {
   const t = useTranslate("Profile");
   let cookies = new Cookies();
   const history = useNavigate();

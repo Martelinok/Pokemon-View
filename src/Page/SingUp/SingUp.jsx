@@ -13,6 +13,12 @@ import SvgIcon from "../../Assets/Images/SvgIcon";
 import Loader from "../../Components/Loader/Loader";
 /* ------------------------------ Import Style ------------------------------ */
 import "./SingUp.css";
+/**
+ * This is a componet to show the NavBar
+ * @author [Kevin Martello Mayorga Cleveland]
+ * @version 1.0.0
+ * @param  {Function} dispatch - Is the function to dispatch the action to the reducer
+ */
 function SingUp({ dispatch }) {
 
   const { user, setUser } = useAuth();
@@ -74,7 +80,6 @@ function SingUp({ dispatch }) {
     let validatePassword = false
     try {
       responseUser = await fetch(email);
-      console.log("responseUser", responseUser);
       if (responseUser.data.length > 0) {
         validatePassword = await decrypt(password, responseUser.data[0].password)
       }
